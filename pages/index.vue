@@ -22,6 +22,7 @@
         </div>
       </section>
     </div>
+    <Panel />
     <footer class="container">
       <p>Built by <a href="https://github.com/japick" target="_blank">Jay Pick</a> using CSS Grid. Hosted on Github.</p>
     </footer>
@@ -30,8 +31,12 @@
 
 <script>
 import { beansLegumesCollection, nutsSeedsGrainsCollection, greensCollection } from '~/plugins/firebase.js'
+import Panel from '~/components/Panel.vue'
 
 export default {
+  components: {
+    Panel
+  },
   async asyncData({app, params, error}) {
     let arr1 = []
     let arr2 = []
