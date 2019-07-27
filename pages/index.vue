@@ -15,9 +15,9 @@
           <button class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" fill="#0b6936"/></svg></button>
 
           <!-- test -->
-          <ul v-for="(val, index) in food.profile" :key="val+index">
+          <!-- <ul v-for="(val, index) in food.profile" :key="val+index">
             <li>{{val}}</li>
-          </ul>
+          </ul> -->
 
         </div>
       </section>

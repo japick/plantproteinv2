@@ -9,53 +9,53 @@
         <tbody>
           <tr>
             <td>&nbsp;</td>
-            <td><strong>RDA for 70kg person</strong></td>
-            <td><strong>mg per 100g serving</strong></td>
+            <td><strong>RDA for 70kg person <small>*</small></strong></td>
+            <td><strong>mg per 100g serving <small>**</small></strong></td>
           </tr>
           <tr>
             <td>Tryptophan</td>
             <td>350</td>
-            <td>591</td>
+            <td><span class="[ val val--green ]">591</span></td>
           </tr>
           <tr>
             <td>Threonine</td>
             <td>1400</td>
-            <td>1766</td>
+            <td><span class="[ val val--green ]">1766</span></td>
           </tr>
           <tr>
             <td>Isoleucine</td>
             <td>1330</td>
-            <td>1971</td>
+            <td><span class="[ val val--green ]">1971</span></td>
           </tr>
           <tr>
             <td>Leucine</td>
             <td>2940</td>
-            <td>3309</td>
+            <td><span class="[ val val--green ]">3309</span></td>
           </tr>
           <tr>
             <td>Lysine</td>
             <td>2660</td>
-            <td>2706</td>
+            <td><span class="[ val val--green ]">2706</span></td>
           </tr>
           <tr>
             <td>Methionine</td>
             <td>1330</td>
-            <td>547</td>
+            <td><span class="[ val val--yellow ]">547</span></td>
           </tr>
           <tr>
             <td>Phenylalanine</td>
             <td>2310</td>
-            <td>2122</td>
+            <td><span class="[ val val--green ]">2122</span></td>
           </tr>
           <tr>
             <td>Valine</td>
             <td>1680</td>
-            <td>2029</td>
+            <td><span class="[ val val--green ]">2029</span></td>
           </tr>
           <tr>
             <td>Histidine</td>
             <td>980</td>
-            <td>1097</td>
+            <td><span class="[ val val--green ]">1097</span></td>
           </tr>
           </tbody>
         </table>
@@ -96,11 +96,43 @@ table {
   color: #fff;
   text-shadow: 1px 1px 0px #0a8f46;
   border-collapse: collapse;
+  width: 100%;
 }
 
 td {
   width: 33.33%;
   padding: 10px;
+}
+
+.val {
+  display: inline-flex;
+  align-items: center;
+}
+
+.val:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+}
+
+.val--green:after {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid lime;
+}
+
+.val--yellow:after {
+  border-top: 5px solid transparent;
+  border-right: 8px solid yellow;
+  border-bottom: 5px solid transparent;
+}
+
+.val--red:after {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid red;
 }
 </style>
 
