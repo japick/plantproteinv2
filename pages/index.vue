@@ -4,7 +4,7 @@
       <span>Plants got protein.</span>
     </div>
     <div class="container">
-      <p class="lede">Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them <span>complete</span> proteins.</p>
+      <p class="lede">Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them 	&ldquo;complete&rdquo; proteins.</p>
     </div>
     <div v-for="(group, index) in groups" :key="group+index" class="container">
       <span class="grid__heading">{{ group.name }}</span>
@@ -13,6 +13,12 @@
           <h3>{{food.name}}</h3>
           <span class="amount">{{food.protein}}g <span>/ 100g</span></span>
           <button class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" fill="#0b6936"/></svg></button>
+
+          <!-- test -->
+          <ul v-for="(val, index) in food.profile" :key="val+index">
+            <li>{{val}}</li>
+          </ul>
+
         </div>
       </section>
     </div>
@@ -29,7 +35,6 @@ export default {
   async asyncData({app, params, error}) {
     let arr1 = []
     let arr2 = []
-    let arr3 = []
     await beansLegumesCollection.collection('foods').orderBy("protein", "desc").get().then(snapshot => {
       snapshot.forEach(doc => {
         arr1.push(doc.data())
@@ -38,11 +43,6 @@ export default {
     await nutsSeedsGrainsCollection.collection('foods').orderBy("protein", "desc").get().then(snapshot => {
       snapshot.forEach(doc => {
         arr2.push(doc.data())
-      })
-    })
-    await greensCollection.collection('foods').orderBy("protein", "desc").get().then(snapshot => {
-      snapshot.forEach(doc => {
-        arr3.push(doc.data())
       })
     })
     return {
@@ -54,10 +54,6 @@ export default {
         {
           name: 'Nuts, seeds & grains',
           foods: arr2
-        },
-        {
-          name: 'Greens',
-          foods: arr3
         }
       ]
     }
