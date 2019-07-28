@@ -1,5 +1,5 @@
 <template>
-  <div class="c-Panel">
+  <div :class="['c-Panel', {'is-active': active}]">
     <div class="container">
       <span>Soybeans</span>
     </div>
@@ -66,9 +66,14 @@
 
 <script>
 export default {
+  created() {
+    this.$bus.$on('openPanel', (data) => {
+      this.active = data
+    })
+  },
   data() {
     return {
-      
+      active: false
     }
   }
 }
@@ -85,9 +90,14 @@ export default {
   top: 0;
   right: 0;
   bottom: 0;
+  transform: translateX(calc(100% + 10px));
   transition: 
-    transform .4s cubic-bezier(0.42, 0, 0.34, 1.01), 
-    -webkit-transform 0.4s cubic-bezier(0.42, 0, 0.34, 1.01);
+    transform .5s cubic-bezier(0.42, 0, 0.34, 1.01), 
+    -webkit-transform 0.5s cubic-bezier(0.42, 0, 0.34, 1.01);
+}
+
+.c-Panel.is-active {
+  transform: translateX(0);
 }
 
 table {
@@ -114,25 +124,25 @@ td {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 5px;
+  margin-left: 7px;
 }
 
 .val--green:after {
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 8px solid lime;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid lime;
 }
 
 .val--yellow:after {
-  border-top: 5px solid transparent;
-  border-right: 8px solid yellow;
-  border-bottom: 5px solid transparent;
+  border-top: 4px solid transparent;
+  border-right: 7px solid yellow;
+  border-bottom: 4px solid transparent;
 }
 
 .val--red:after {
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 8px solid red;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid red;
 }
 </style>
 
