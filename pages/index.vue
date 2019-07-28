@@ -1,31 +1,34 @@
 <template>
   <div>
-    <div class="container">
-      <span>Plants got protein.</span>
-    </div>
-    <div class="container">
-      <p class="lede">Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them 	&ldquo;complete&rdquo; proteins.</p>
-    </div>
-    <div v-for="(group, index) in groups" :key="group+index" class="container">
-      <span class="grid__heading">{{ group.name }}</span>
-      <section class="[ grid grid--large ]">
-        <div v-for="(food, index) in group.foods" :key="food+index" class="grid__item">
-          <h3>{{food.name}}</h3>
-          <span class="amount">{{food.protein}}g <span>/ 100g</span></span>
-          <button class="btn" @click="openPanel"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" fill="#0b6936"/></svg></button>
+    <div :class="['wrapper', {'is-active': !disabled}]">
+      <div class="container">
+        <span>Plants got protein.</span>
+      </div>
+      <div class="container">
+        <p class="lede">Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them 	&ldquo;complete&rdquo; proteins.</p>
+      </div>
+      <div v-for="(group, index) in groups" :key="group+index" class="container">
+        <span class="grid__heading">{{ group.name }}</span>
+        <section class="[ grid grid--large ]">
+          <div v-for="(food, index) in group.foods" :key="food+index" class="grid__item">
+            <h3>{{food.name}}</h3>
+            <span class="amount">{{food.protein}}g <span>/ 100g</span></span>
+            <button class="btn" @click="openPanel"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" fill="#0b6936"/></svg></button>
 
-          <!-- test -->
-          <!-- <ul v-for="(val, index) in food.profile" :key="val+index">
-            <li>{{val}}</li>
-          </ul> -->
+            <!-- test -->
+            <!-- <ul v-for="(val, index) in food.profile" :key="val+index">
+              <li>{{val}}</li>
+            </ul> -->
 
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
+      <footer class="container">
+        <p>Built by <a href="https://github.com/japick" target="_blank">Jay Pick</a> using CSS Grid. Hosted on Github.</p>
+      </footer>
+      <div :class="['overlay', {'is-active': disabled}]" @click="closePanel"></div>
     </div>
     <Panel />
-    <footer class="container">
-      <p>Built by <a href="https://github.com/japick" target="_blank">Jay Pick</a> using CSS Grid. Hosted on Github.</p>
-    </footer>
   </div>
 </template>
 
@@ -66,6 +69,16 @@ export default {
   methods: {
     openPanel() {
       this.$bus.$emit('openPanel', true)
+      this.disabled = true
+    },
+    closePanel() {
+      this.$bus.$emit('openPanel', false)
+      this.disabled = false
+    }
+  },
+  data() {
+    return {
+      disabled: false
     }
   }
 }
@@ -106,6 +119,36 @@ h3, .h3 {
 
 a {
 	color: #0b6936;
+}
+
+.wrapper {
+  transition: transform .4s cubic-bezier(0.42, 0, 0.34, 1.01), filter .4s cubic-bezier(0.42, 0, 0.34, 1.01);
+  overflow: hidden;
+  will-change: filter, transform;
+  transform: translateX(-20px);
+  filter: blur(5px);
+}
+
+.wrapper.is-active {
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+.overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.2);
+  z-index: -1;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.overlay.is-active {
+  z-index: 1;
 }
 
 /* grid */
