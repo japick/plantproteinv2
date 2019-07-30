@@ -162,7 +162,7 @@ td {
 .val--red:after {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-bottom: 7px solid red;
+  border-top: 7px solid red;
 }
 </style>
 
