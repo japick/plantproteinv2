@@ -59,6 +59,20 @@
           </tr>
           </tbody>
         </table>
+
+        <div>
+          {{profile[5]}}
+          <span v-if="profile[5] >= (1330 * 0.666)" class="val val--green"></span>
+          <span v-else-if="profile[5] < (1330 * 0.666) && profile[5] > (1300 * 0.333)" class="val val--yellow"></span>
+          <span v-else class="val val--red"></span>
+        </div>
+
+        
+          <!-- - If value is greater than or equal to two thirds = green
+          - If value is less than two thirds but greater than one third = yellow 
+          - If value is less than or equal to one third = red  -->
+        
+
     </div>
   </div>
 </template>
