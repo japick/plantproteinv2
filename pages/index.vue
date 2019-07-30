@@ -13,13 +13,7 @@
           <div v-for="(food, index) in group.foods" :key="food+index" class="grid__item">
             <h3>{{food.name}}</h3>
             <span class="amount">{{food.protein}}g <span>/ 100g</span></span>
-            <button class="btn" @click="openPanel"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" fill="#0b6936"/></svg></button>
-
-            <!-- test -->
-            <!-- <ul v-for="(val, index) in food.profile" :key="val+index">
-              <li>{{val}}</li>
-            </ul> -->
-
+            <button class="btn" @click="openPanel({food: food.name, profile: food.profile})"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" fill="#0b6936"/></svg></button>
           </div>
         </section>
       </div>
@@ -67,12 +61,12 @@ export default {
     }
   },
   methods: {
-    openPanel() {
-      this.$bus.$emit('openPanel', true)
+    openPanel(data) {
+      this.$bus.$emit('openPanel', data)
       this.disabled = true
     },
     closePanel() {
-      this.$bus.$emit('openPanel', false)
+      this.$bus.$emit('closePanel')
       this.disabled = false
     }
   },
