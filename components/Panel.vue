@@ -14,59 +14,51 @@
           </tr>
           <tr>
             <td>Tryptophan</td>
-            <td>350</td>
-            <td><span class="[ val val--green ]">{{profile[0]}}</span></td>
+            <td>{{amino_acid.tryptophan}}</td>
+            <td><span :class="['val', rating(amino_acid.tryptophan, profile[0])]">{{profile[0]}}</span></td>
           </tr>
           <tr>
             <td>Threonine</td>
-            <td>1400</td>
-            <td><span class="[ val val--green ]">{{profile[1]}}</span></td>
+            <td>{{amino_acid.threonine}}</td>
+            <td><span :class="['val', rating(amino_acid.threonine, profile[1])]">{{profile[1]}}</span></td>
           </tr>
           <tr>
             <td>Isoleucine</td>
-            <td>1330</td>
-            <td><span class="[ val val--green ]">{{profile[2]}}</span></td>
+            <td>{{amino_acid.isoleucine}}</td>
+            <td><span :class="['val', rating(amino_acid.isoleucine, profile[2])]">{{profile[2]}}</span></td>
           </tr>
           <tr>
             <td>Leucine</td>
-            <td>2940</td>
-            <td><span class="[ val val--green ]">{{profile[3]}}</span></td>
+            <td>{{amino_acid.leucine}}</td>
+            <td><span :class="['val', rating(amino_acid.leucine, profile[3])]">{{profile[3]}}</span></td>
           </tr>
           <tr>
             <td>Lysine</td>
-            <td>2660</td>
-            <td><span class="[ val val--green ]">{{profile[4]}}</span></td>
+            <td>{{amino_acid.lysine}}</td>
+            <td><span :class="['val', rating(amino_acid.lysine, profile[4])]">{{profile[4]}}</span></td>
           </tr>
           <tr>
             <td>Methionine</td>
-            <td>1330</td>
-            <td><span class="[ val val--yellow ]">{{profile[5]}}</span></td>
+            <td>{{amino_acid.methionine}}</td>
+            <td><span :class="['val', rating(amino_acid.methionine, profile[5])]">{{profile[5]}}</span></td>
           </tr>
           <tr>
             <td>Phenylalanine</td>
-            <td>2310</td>
-            <td><span class="[ val val--green ]">{{profile[6]}}</span></td>
+            <td>{{amino_acid.phenylalanine}}</td>
+            <td><span :class="['val', rating(amino_acid.phenylalanine, profile[6])]">{{profile[6]}}</span></td>
           </tr>
           <tr>
             <td>Valine</td>
-            <td>1680</td>
-            <td><span class="[ val val--green ]">{{profile[7]}}</span></td>
+            <td>{{amino_acid.valine}}</td>
+            <td><span :class="['val', rating(amino_acid.valine, profile[7])]">{{profile[7]}}</span></td>
           </tr>
           <tr>
             <td>Histidine</td>
-            <td>980</td>
-            <td><span class="[ val val--green ]">{{profile[8]}}</span></td>
+            <td>{{amino_acid.histidine}}</td>
+            <td><span :class="['val', rating(amino_acid.histidine, profile[8])]">{{profile[8]}}</span></td>
           </tr>
           </tbody>
         </table>
-
-        <div>
-          {{profile[5]}}
-          <span v-if="profile[5] >= (1330 * 0.666)" class="val val--green"></span>
-          <span v-else-if="profile[5] < (1330 * 0.666) && profile[5] > (1300 * 0.333)" class="val val--yellow"></span>
-          <span v-else class="val val--red"></span>
-        </div>
-
         
           <!-- - If value is greater than or equal to two thirds = green
           - If value is less than two thirds but greater than one third = yellow 
@@ -89,11 +81,32 @@ export default {
       this.active = false
     })
   },
+  methods: {
+    rating(base, val) {
+      if (val >= (base * 0.666))
+        return 'val--green'
+      else if (val < (base * 0.666) && val > (base * 0.333))
+        return 'val--yellow'
+      else
+        return 'val--red'
+    }
+  },
   data() {
     return {
       profile: false,
       food: null,
-      active: false
+      active: false,
+      amino_acid: {
+        tryptophan: 350,
+        threonine: 1400,
+        isoleucine: 1330,
+        leucine: 2940,
+        lysine: 2660,
+        methionine: 1330,
+        phenylalanine: 2310,
+        valine: 1680,
+        histidine: 980
+      }
     }
   }
 }
@@ -165,5 +178,3 @@ td {
   border-top: 7px solid red;
 }
 </style>
-
-
