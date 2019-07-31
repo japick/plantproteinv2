@@ -5,7 +5,7 @@
         <span>Plants got protein.</span>
       </div>
       <div class="container">
-        <p class="lede">Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them 	&ldquo;complete&rdquo; proteins.</p>
+        <p class="lede">Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them   &ldquo;complete&rdquo; proteins.</p>
       </div>
       <div v-for="(group, index) in groups" :key="group+index" class="container">
         <span class="grid__heading">{{ group.name }}</span>
@@ -82,37 +82,37 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
 
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 *:focus {
-	outline: none;
+  outline: none;
 }
 
 html {
-	font-smoothing: antialiased;
-   	-webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-	font-family: 'Work Sans', sans-serif;
-	color: #0b6936;
-	background-color: #00CC66;
-	font-weight: 400;
+  font-family: 'Work Sans', sans-serif;
+  color: #0b6936;
+  background-color: #00CC66;
+  font-weight: 400;
 }
 
 h3, .h3 {
-	font-weight: 400;
-	font-size: 2.4rem;
-	letter-spacing: -.1rem;
-	margin: 0 0 5px;
-	line-height: 1;
-	text-shadow: 2px 2px 0px #0a8f46;
+  font-weight: 400;
+  font-size: 2.4rem;
+  letter-spacing: -.1rem;
+  margin: 0 0 5px;
+  line-height: 1;
+  text-shadow: 2px 2px 0px #0a8f46;
 }
 
 a {
-	color: #0b6936;
+  color: #0b6936;
 }
 
 .wrapper {
@@ -148,45 +148,45 @@ a {
 /* grid */
 
 .container {
-	position: relative;
-	clear: both;
-	border-bottom: 1px solid #0ca551;
-	padding: 20px;
+  position: relative;
+  clear: both;
+  border-bottom: 1px solid #0ca551;
+  padding: 20px;
 }
 
 .grid {
-	display: grid;
-	grid-column-gap: 10px;
+  display: grid;
+  grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
 
 .grid--large {
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-auto-flow: column;
-	grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-flow: column;
+  grid-auto-flow: dense;
 }
 
 .grid--small {
-	grid-template-columns: repeat(5, 1fr);
-  	grid-template-rows: 20%;
+  grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 20%;
 }
 
 .grid__heading {
-	display: block;
-	margin-bottom: 20px;
+  display: block;
+  margin-bottom: 20px;
 }
 
 .grid__item {
-	background-color: #fff;
-	border-radius: 6px;
-	padding: 15px;
-	display: inline-block;
-	background-color: #0ca551;
-	overflow: hidden;
-	position: relative;
-	transform: scale(1);
-	transition: transform .2s ease-in-out;
-	color: #fff;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 15px;
+  display: inline-block;
+  background-color: #0ca551;
+  overflow: hidden;
+  position: relative;
+  transform: scale(1);
+  transition: transform .2s ease-in-out;
+  color: #fff;
 }
 
 .btn {
@@ -210,60 +210,60 @@ a {
 }
 
 .amount {
-	font-size: 1.6rem;
-	text-shadow: 2px 2px 0px #0a8f46;
+  font-size: 1.6rem;
+  text-shadow: 2px 2px 0px #0a8f46;
 }
 
 .amount span {
-	color: #0b6936;
-	text-shadow: none;
+  color: #0b6936;
+  text-shadow: none;
 }
 
 footer.container {
-	border-bottom: 0;
+  border-bottom: 0;
 }
 
 .lede {
-	font-size: 3.8rem;
-	letter-spacing: -.03em;
-	line-height: 1.1;
-	margin-bottom: 10px;
+  font-size: 3.8rem;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 10px;
 }
 
 .lede span {
-	display: inline-block;
+  display: inline-block;
 }
 
 .lede span:before,
 .lede span:after {
-	display: inline-block;
+  display: inline-block;
 }
 
 .lede span:before {
-	content: open-quote;
+  content: open-quote;
 }
 
 .lede span:after {
-	content: close-quote;
+  content: close-quote;
 }
 
 /* responsive */
 
 @media only screen and (max-width: 768px) {
-	.lede {
-		font-size: 3rem;
-		line-height: 1;
-	}
+  .lede {
+    font-size: 3rem;
+    line-height: 1;
+  }
 }
 
 @media only screen and (max-width: 530px) {
-	.container {
-		padding: 10px;
-	}
+  .container {
+    padding: 10px;
+  }
 
-	.grid__heading {
-		display: block;
-		margin-bottom: 10px;
-	}
+  .grid__heading {
+    display: block;
+    margin-bottom: 10px;
+  }
 }
 </style>
