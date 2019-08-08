@@ -18,7 +18,7 @@
         </section>
       </div>
       <footer class="container">
-        <p>Built by <a href="https://github.com/japick" target="_blank">Jay Pick</a> using CSS Grid. Hosted on Github.</p>
+        <p>Built by <a href="https://github.com/japick" target="_blank">Jay Pick</a> using CSS Grid. Hosted on <a href="https://www.netlify.com" title="Hosted on Netlify" target="_blank">Netlify</a>.</p>
       </footer>
       <div :class="['overlay', {'is-active': disabled}]" @click="closePanel"></div>
     </div>
