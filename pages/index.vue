@@ -79,8 +79,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
-
 * {
   margin: 0;
   padding: 0;
