@@ -74,6 +74,14 @@ export default {
     return {
       disabled: false
     }
+  },
+  head () {
+    return {
+      title: Plants got protein.,
+      meta: [
+        { hid: 'description', name: 'description', content: 'Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them "complete" proteins.' }
+      ]
+    }
   }
 }
 </script>
