@@ -116,7 +116,7 @@ export default {
 .c-Panel {
   background-color: #00CC66;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  width: 100%;
+  width: 90%;
   max-width: 650px;
   position: fixed;
   z-index: 2;
