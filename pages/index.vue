@@ -79,7 +79,7 @@ export default {
     return {
       title: 'Plants got protein.',
       meta: [
-        { hid: 'description', name: 'description', content: 'Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them "complete" proteins.' }
+        { hid: 'description', name: 'description', content: 'Contrary to popular myth, plant proteins contain all 9 essential amino acids, making them "complete" proteins. Plant foods high in protein include hemp seeds, soybeans, and lentils.' }
       ]
     }
   }
