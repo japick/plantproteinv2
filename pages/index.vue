@@ -249,7 +249,7 @@ footer.container {
 
 @media only screen and (max-width: 768px) {
   .lede {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     line-height: 1;
   }
 }
