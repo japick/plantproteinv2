@@ -36,6 +36,7 @@ module.exports = {
   plugins: [
     '~/plugins/firebase.js',
     '~/plugins/event-bus.js',
+    { src: '~plugins/ga.js', ssr: false }
   ],
 
   /*
