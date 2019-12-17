@@ -57,6 +57,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    
     /*
     ** You can extend webpack config here
     */
@@ -69,12 +70,6 @@ module.exports = {
         //   loader: 'eslint-loader',
         //   exclude: /(node_modules)/
         // })
-      }
-      if (isServer) {
-        config.externals = {
-          '@firebase/app': 'commonjs @firebase/app',
-          '@firebase/firestore': 'commonjs @firebase/firestore'
-        }
       }
     }
   }
